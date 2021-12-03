@@ -48,7 +48,7 @@ public class Menu extends JFrame {
         botaoa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new AxieGUI();
             }
         });
 
