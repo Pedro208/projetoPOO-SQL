@@ -14,16 +14,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        AxieBD axiebd = new AxieBD();
-        ContaBD contabd = new ContaBD();
-        JogadorBF jogadorBF = new JogadorBF();
-        Sup_has_jogador has = new Sup_has_jogador();
-        SupervisorBD sup = new SupervisorBD();
+
+        ContaBD b = new ContaBD();
         Scanner sc = new Scanner(System.in);
         String txt;
         int inter;
-        double deci;
-
 
         System.out.println("Antes de tudo, adicione sua primeira conta\n");
         System.out.print("Digite o Nickname da conta: ");
@@ -33,6 +28,7 @@ public class Main {
         System.out.print("Digite a senha da conta: ");
         txt = sc.next();
         c.setPassword(txt);
+        b.insertConta(c);
 
         System.out.println("\n\n------------MENU-------------");
         System.out.println("Escolha o que deseja gerenciar\n");
@@ -147,7 +143,7 @@ public class Main {
                 break;
 
             case 3:
-                System.out.println("MUDAR SENHA\n");
+                System.out.println("MUDAR NICKNAME\n");
                 System.out.print("Digite nome da conta: ");
                 txt = sc.next();
                 System.out.print("Digite o novo Nickname: ");
@@ -179,7 +175,7 @@ public class Main {
         String txt1;
         int inter;
 
-        System.out.println("O que vccê deseja fazer?\n");
+        System.out.println("O que você deseja fazer?\n");
         System.out.println("(1) - Inserir um novo jogador");
         System.out.println("(2) - Buscar um Jogador");
         System.out.println("(3) - Mudar conta do Jogador");
@@ -208,7 +204,6 @@ public class Main {
                 break;
 
             case 2:
-                Jogador a1 = new Jogador();
                 System.out.println("BUSCAR JOGADOR\n");
                 System.out.println("Digite o CPF: ");
                 txt = sc.next();

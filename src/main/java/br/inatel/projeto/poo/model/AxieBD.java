@@ -36,8 +36,8 @@ public class AxieBD {
 
         connect();
 
-        ContaBD bdequipe = new ContaBD();
-        int idConta = bdequipe.getIdConta(nomeConta);
+        ContaBD bdconta = new ContaBD();
+        int idConta = bdconta.getIdConta(nomeConta);
 
         connect();
         String sql = "INSERT INTO axie(nome,ripo,poder,conta_idconta) VALUES (?,?,?)";
