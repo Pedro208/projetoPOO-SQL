@@ -28,15 +28,15 @@ public class Sup_has_jogador {
             System.out.println("Erro de conexão: " + e.getMessage());
         }
     }
-    public boolean sup_has_jogador(Jogador j, Supervisor s){
+    public boolean sup_has_jogador(String j, String s){
 
         connect();
 
         String sql = "INSERT INTO jogador_has_supervisor(jogador_cpf,supervisor_cpf) VALUES (?,?)";
         try{
             pst = connection.prepareStatement(sql);
-            pst.setString(1,s.getCpf());
-            pst.setString(2,j.getCpf());
+            pst.setString(1,j);
+            pst.setString(2,s);
 
             pst.execute();
             check = true;

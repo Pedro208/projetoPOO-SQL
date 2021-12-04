@@ -7,6 +7,7 @@ import br.inatel.projeto.poo.controller.Supervisor;
 import br.inatel.projeto.poo.model.*;
 import com.mysql.management.util.Str;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class Main {
         System.out.println("(1) - Axie");
         System.out.println("(2) - Conta");
         System.out.println("(3) - Jogador");
-        System.out.println("(4) Supervisor");
+        System.out.println("(4) - Supervisor");
 
         inter = sc.nextInt();
         switch (inter){
@@ -183,7 +184,8 @@ public class Main {
         System.out.println("(2) - Buscar um Jogador");
         System.out.println("(3) - Mudar conta do Jogador");
         System.out.println("(4) - Listar Jogadores");
-        System.out.println("(5) - Deletar jogador");
+        System.out.println("(5) - Definir um supervisor responsavel");
+        System.out.println("(6) - Deletar jogador");
 
         inter = sc.nextInt();
         switch (inter){
@@ -235,8 +237,17 @@ public class Main {
                     lista.get(i);
                 }
                 break;
-
             case 5:
+                Sup_has_jogador shj = new Sup_has_jogador();
+
+                System.out.print("Digite o CPF do jogador: ");
+                txt1 = sc.next();
+                System.out.print("Digite o CPF do supervisor: ");
+                txt = sc.next();
+                shj.sup_has_jogador(txt1,txt);
+                break;
+
+            case 6:
                 System.out.println("DELETAR UM JOGADOR\n");
                 System.out.print("CPF do jogador: ");
                 txt = sc.next();
@@ -249,6 +260,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         SupervisorBD b = new SupervisorBD();
         String txt;
+        String txt1;
         int inter;
         double doub;
 
@@ -257,7 +269,8 @@ public class Main {
         System.out.println("(2) - Buscar um Supervisor");
         System.out.println("(3) - Mudar Salario");
         System.out.println("(4) - Lista de Supervisores");
-        System.out.println("(5) - Deletar Supervisor");
+        System.out.println("(5) - Ser Responsavel de um jogador");
+        System.out.println("(6) - Deletar Supervisor");
 
         inter = sc.nextInt();
         switch (inter){
@@ -311,6 +324,16 @@ public class Main {
                 break;
 
             case 5:
+                Sup_has_jogador shj = new Sup_has_jogador();
+
+                System.out.print("Digite o CPF do supervisor: ");
+                txt = sc.next();
+                System.out.print("Digite o CPF do jogador: ");
+                txt1 = sc.next();
+                shj.sup_has_jogador(txt1,txt);
+                break;
+
+            case 6:
                 System.out.println("DELETAR UM SUPERVISOR\n");
                 System.out.print("CPF do supervisor: ");
                 txt = sc.next();
