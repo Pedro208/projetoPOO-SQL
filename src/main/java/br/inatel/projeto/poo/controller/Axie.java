@@ -10,6 +10,7 @@ public class Axie {
         this.tipo = tipo;
         this.poder = poder;
     }
+    public Axie(){};
 
     public String getNome() {
         return nome;

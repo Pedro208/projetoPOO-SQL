@@ -9,6 +9,7 @@ public class Supervisor extends Empregado{
         this.horas_semana = horas_semana;
         this.salario = salario;
     }
+    public Supervisor(){};
 
     @Override
     public String getTelefone() {

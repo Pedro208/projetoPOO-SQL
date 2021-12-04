@@ -8,7 +8,7 @@ public class Conta {
         this.nickname = nickname;
         this.password = password;
     }
-
+    public Conta(){};
     public String getNickname() {
         return nickname;
     }

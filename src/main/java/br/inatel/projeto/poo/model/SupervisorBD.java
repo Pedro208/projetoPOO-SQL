@@ -62,9 +62,9 @@ public class SupervisorBD {
     }
 
     //Busca um supervisor
-    public Jogador buscarSupervisor(String cpf) {
+    public Supervisor buscarSupervisor(String cpf) {
 
-        Jogador aux = new Jogador();
+        Supervisor aux = new Supervisor();
         connect();
 
         String sql = "SELECT * FROM Jogador WHERE cpf = ? ";
@@ -78,7 +78,8 @@ public class SupervisorBD {
             aux.setCpf(result.getString("cpf"));
             aux.setTelefone(result.getString("telefone"));
             aux.setIdade(result.getInt("idade"));
-            aux.setLucro(result.getInt("lucro"));
+            aux.setHoras_semana(result.getInt("horas"));
+            aux.setSalario(result.getDouble("salario"));
 
 
         } catch (SQLException ex) {
@@ -95,7 +96,6 @@ public class SupervisorBD {
         return aux;
     }
 
-    //Muda a conta do jogador
     public boolean updateSalarioSupervisor(String cpf, Double salario) {
 
         connect();

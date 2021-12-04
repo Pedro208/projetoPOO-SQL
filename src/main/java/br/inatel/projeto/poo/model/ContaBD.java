@@ -81,7 +81,7 @@ public class ContaBD {
     //-------------------Lista de Contas----------------------------
     public ArrayList<String> listaConta() {
 
-        ArrayList<String> listaEquipes = new ArrayList<>();
+        ArrayList<String> listaContas = new ArrayList<>();
         connect();
 
         String sql = "SELECT nickname FROM Conta";
@@ -89,7 +89,7 @@ public class ContaBD {
             statement = connection.createStatement();
             result = statement.executeQuery(sql); //ref. a tabela resultante da busca
             while (result.next()) {
-                listaEquipes.add(result.getString("nome"));
+                listaContas.add(result.getString("nome"));
             }
             check = true;
         } catch (SQLException ex) {
@@ -103,10 +103,10 @@ public class ContaBD {
                 JOptionPane.showMessageDialog(null, "Erro = " + ex.getMessage());
             }
         }
-        return listaEquipes;
+        return listaContas;
     }
-    //---------------------Atualizar nome ----------------------
-    public boolean updateNomeEquipe(String nomeConta, String novoNome) {
+    //---------------------Atualizar Nickname ----------------------
+    public boolean mudarNickname(String nomeConta, String novoNome) {
 
         connect();
         int idConta = this.getIdConta(nomeConta);
